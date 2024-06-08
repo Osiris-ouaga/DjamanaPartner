@@ -13,14 +13,21 @@ namespace Djamana_Partenaires
 
             // Configure services
             var serviceCollection = new ServiceCollection();
-            ServiceConfigurator.ConfigureServices(serviceCollection, "Your_Connection_String_Here");
+            ServiceConfigurator.ConfigureServices(serviceCollection, "Server=DESKTOP-LBN9HF5\\SQLEXPRESS; Database=DjamaPartner; Trusted_Connection=true; TrustServerCertificate=true;");
+
+            // Register the form in the WinForms project
+            serviceCollection.AddTransient<FrmDashboard>();
 
             // Build the service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FrmDashboard());
+            // Use the service provider to create the main form with dependencies
+            var mainForm = serviceProvider.GetRequiredService<FrmDashboard>();
+            Application.Run(mainForm);
+
+            //// see https://aka.ms/applicationconfiguration.
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new FrmDashboard());
         }
     }
 }

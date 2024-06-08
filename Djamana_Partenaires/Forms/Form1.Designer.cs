@@ -1,4 +1,5 @@
-﻿namespace Djamana_Partenaires
+﻿
+namespace Djamana_Partenaires
 {
     partial class FrmDashboard
     {
@@ -31,6 +32,7 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
+            btnLogOut = new Button();
             btnSearch = new Button();
             btnAdmin = new Button();
             btnResourcesPerson = new Button();
@@ -45,7 +47,6 @@
             slideThreeUserControl1 = new UserControls.SlideThreeUserControl();
             slideFourUserControl1 = new UserControls.SlideFourUserControl();
             slideFiveUserControl1 = new UserControls.SlideFiveUserControl();
-            btnLogOut = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -92,6 +93,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(200, 626);
             panel2.TabIndex = 1;
+            // 
+            // btnLogOut
+            // 
+            btnLogOut.FlatStyle = FlatStyle.Popup;
+            btnLogOut.Location = new Point(24, 516);
+            btnLogOut.Name = "btnLogOut";
+            btnLogOut.Size = new Size(148, 49);
+            btnLogOut.TabIndex = 6;
+            btnLogOut.Text = "Déconnexion";
+            btnLogOut.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
@@ -153,6 +164,7 @@
             BtnCountry.TabIndex = 0;
             BtnCountry.Text = "Pays";
             BtnCountry.UseVisualStyleBackColor = true;
+            BtnCountry.Click += this.BtnCountry_Click;
             // 
             // panel3
             // 
@@ -166,6 +178,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Djamana.Partenaires.UI.Properties.Resources.logo;
             pictureBox1.Location = new Point(6, 168);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(182, 175);
@@ -232,16 +245,6 @@
             slideFiveUserControl1.TabIndex = 0;
             slideFiveUserControl1.Load += slideFiveUserControl1_Load;
             // 
-            // btnLogOut
-            // 
-            btnLogOut.FlatStyle = FlatStyle.Popup;
-            btnLogOut.Location = new Point(24, 516);
-            btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(148, 49);
-            btnLogOut.TabIndex = 6;
-            btnLogOut.Text = "Déconnexion";
-            btnLogOut.UseVisualStyleBackColor = true;
-            // 
             // FrmDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -255,6 +258,7 @@
             Name = "FrmDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
+            Load += FrmDashboard_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -263,6 +267,7 @@
             panel4.ResumeLayout(false);
             ResumeLayout(false);
         }
+
 
         #endregion
 

@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Djamana.Partenaires.Core.Data\Djamana.Partenaires.Core.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>

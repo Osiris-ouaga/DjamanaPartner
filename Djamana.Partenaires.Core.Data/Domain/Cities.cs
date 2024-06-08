@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Djamana.Partenaires.Core.Data.Domain
+﻿namespace Djamana.Partenaires.Core.Data.Domain
 {
     public class Cities
     {
+        public int Id { get; set; }
+
+        public required string Name { get; set; }
+
+        public virtual  Country countries { get; set; }
     }
 }
