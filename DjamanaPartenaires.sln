@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Djamana_Partenaires", "Djamana_Partenaires\Djamana_Partenaires.csproj", "{D5CF3274-2D29-437B-B635-33FB628F3794}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Djamana.Partenaires.UI", "Djamana_Partenaires\Djamana.Partenaires.UI.csproj", "{D5CF3274-2D29-437B-B635-33FB628F3794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Djamana.Partenaires.Core.Data", "Djamana.Partenaires.Core.Data\Djamana.Partenaires.Core.Data.csproj", "{EDD5D6D2-B07B-46A0-A3DE-A25EDCEDA51E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Djamana.Partenaires.Core.Data", "Djamana.Partenaires.Core.Data\Djamana.Partenaires.Core.Data.csproj", "{EDD5D6D2-B07B-46A0-A3DE-A25EDCEDA51E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Djamana.Partenaires.Core.Business", "Djamana.Partenaires.Core.Business\Djamana.Partenaires.Core.Business.csproj", "{6F16ACA2-3EC8-4DB5-A5F8-1AC681E5AA1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Djamana.Partenaires.Core.Business", "Djamana.Partenaires.Core.Business\Djamana.Partenaires.Core.Business.csproj", "{6F16ACA2-3EC8-4DB5-A5F8-1AC681E5AA1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

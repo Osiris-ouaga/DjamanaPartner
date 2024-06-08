@@ -18,9 +18,9 @@ namespace Djamana_Partenaires
             // Build the service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            // Use the service provider to create the main form with dependencies
-            var mainForm = serviceProvider.GetRequiredService<FrmDashboard>();
-            Application.Run(mainForm);
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new FrmDashboard());
         }
     }
 }
