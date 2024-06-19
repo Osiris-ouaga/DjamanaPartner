@@ -1,4 +1,5 @@
-﻿using Djamana.Partenaires.Core.Data;
+﻿using Djamana.Partenaires.Core.Business.GettingData;
+using Djamana.Partenaires.Core.Data;
 using Djamana.Partenaires.Core.Data.IRepository;
 using Djamana.Partenaires.Core.Data.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ namespace Djamana.Partenaires.Core.Business
             // Register the repositories
             services.AddTransient<ICountryRepository, CountryRepository>();
             services.AddTransient<AddingData.AddingHostelPartner>();
+            services.AddTransient<GettingData.GettingDjamanaPartner>();
 
         }
     }

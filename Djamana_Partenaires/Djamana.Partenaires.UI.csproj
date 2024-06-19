@@ -11,6 +11,7 @@
   <ItemGroup>
     <Folder Include="Controler\ConnexionString\" />
     <Folder Include="Helper\" />
+    <Folder Include="Images\" />
   </ItemGroup>
 
   <ItemGroup>

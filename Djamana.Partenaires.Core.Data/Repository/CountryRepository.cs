@@ -13,7 +13,7 @@ namespace Djamana.Partenaires.Core.Data.Repository
             _dataContext = dataContext;
         }
 
-        public async Task<IEnumerable<Country>> GetAllCountriesAsync()
+        public async Task<List<Country>> GetAllCountriesAsync()
         {
             return await _dataContext.Countries.ToListAsync();
         }
@@ -43,6 +43,11 @@ namespace Djamana.Partenaires.Core.Data.Repository
                 _dataContext.Countries.Remove(country);
                 await _dataContext.SaveChangesAsync();
             }
+        }
+
+        public Task<Country> GetAllCountryAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

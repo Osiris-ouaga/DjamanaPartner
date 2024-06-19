@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            dataGridViewCountry = new DataGridView();
-            lbl = new Label();
-            textBoxCountryName = new TextBox();
-            labelDateCountry = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            btnCancel = new Button();
             btnValidate = new Button();
+            btnCancel = new Button();
+            dateTimePicker1 = new DateTimePicker();
+            labelDateCountry = new Label();
+            textBoxCountryName = new TextBox();
+            lbl = new Label();
+            dataGridViewCountry = new DataGridView();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCountry).BeginInit();
             SuspendLayout();
@@ -50,34 +50,36 @@
             groupBox1.Controls.Add(lbl);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(521, 140);
+            groupBox1.Size = new Size(521, 113);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ajouter un nouveau pays";
             // 
-            // dataGridViewCountry
+            // btnValidate
             // 
-            dataGridViewCountry.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCountry.Location = new Point(12, 158);
-            dataGridViewCountry.Name = "dataGridViewCountry";
-            dataGridViewCountry.Size = new Size(520, 201);
-            dataGridViewCountry.TabIndex = 1;
+            btnValidate.Location = new Point(427, 29);
+            btnValidate.Name = "btnValidate";
+            btnValidate.Size = new Size(75, 23);
+            btnValidate.TabIndex = 5;
+            btnValidate.Text = "Ok";
+            btnValidate.UseVisualStyleBackColor = true;
+            btnValidate.Click += btnValidate_ClickAsync;
             // 
-            // lbl
+            // btnCancel
             // 
-            lbl.AutoSize = true;
-            lbl.Location = new Point(15, 33);
-            lbl.Name = "lbl";
-            lbl.Size = new Size(70, 15);
-            lbl.TabIndex = 0;
-            lbl.Text = "Désignation";
+            btnCancel.Location = new Point(427, 70);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 23);
+            btnCancel.TabIndex = 4;
+            btnCancel.Text = "Annuler";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
-            // textBoxCountryName
+            // dateTimePicker1
             // 
-            textBoxCountryName.Location = new Point(91, 30);
-            textBoxCountryName.Name = "textBoxCountryName";
-            textBoxCountryName.Size = new Size(232, 23);
-            textBoxCountryName.TabIndex = 1;
+            dateTimePicker1.Location = new Point(91, 74);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(232, 23);
+            dateTimePicker1.TabIndex = 3;
             // 
             // labelDateCountry
             // 
@@ -88,31 +90,36 @@
             labelDateCountry.TabIndex = 2;
             labelDateCountry.Text = "Date";
             // 
-            // dateTimePicker1
+            // textBoxCountryName
             // 
-            dateTimePicker1.Location = new Point(91, 74);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(232, 23);
-            dateTimePicker1.TabIndex = 3;
+            textBoxCountryName.Location = new Point(91, 30);
+            textBoxCountryName.Name = "textBoxCountryName";
+            textBoxCountryName.Size = new Size(232, 23);
+            textBoxCountryName.TabIndex = 1;
             // 
-            // btnCancel
+            // lbl
             // 
-            btnCancel.Location = new Point(440, 111);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
-            btnCancel.TabIndex = 4;
-            btnCancel.Text = "Annuler";
-            btnCancel.UseVisualStyleBackColor = true;
+            lbl.AutoSize = true;
+            lbl.Location = new Point(15, 33);
+            lbl.Name = "lbl";
+            lbl.Size = new Size(70, 15);
+            lbl.TabIndex = 0;
+            lbl.Text = "Désignation";
             // 
-            // btnValidate
+            // dataGridViewCountry
             // 
-            btnValidate.Location = new Point(359, 111);
-            btnValidate.Name = "btnValidate";
-            btnValidate.Size = new Size(75, 23);
-            btnValidate.TabIndex = 5;
-            btnValidate.Text = "Ok";
-            btnValidate.UseVisualStyleBackColor = true;
-            btnValidate.Click += btnValidate_ClickAsync;
+            dataGridViewCountry.AllowUserToAddRows = false;
+            dataGridViewCountry.AllowUserToDeleteRows = false;
+            dataGridViewCountry.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewCountry.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCountry.BackgroundColor = SystemColors.ControlLightLight;
+            dataGridViewCountry.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCountry.Location = new Point(12, 131);
+            dataGridViewCountry.Name = "dataGridViewCountry";
+            dataGridViewCountry.ReadOnly = true;
+            dataGridViewCountry.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewCountry.Size = new Size(520, 228);
+            dataGridViewCountry.TabIndex = 1;
             // 
             // CountriesForm
             // 
@@ -126,6 +133,7 @@
             Name = "CountriesForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Countries ";
+            Load += CountriesForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCountry).EndInit();

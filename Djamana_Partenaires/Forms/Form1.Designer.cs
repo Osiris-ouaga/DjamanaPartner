@@ -29,6 +29,8 @@ namespace Djamana_Partenaires
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboard));
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
@@ -41,17 +43,16 @@ namespace Djamana_Partenaires
             BtnCountry = new Button();
             panel3 = new Panel();
             pictureBox1 = new PictureBox();
-            panel4 = new Panel();
-            slideOneUserControl1 = new UserControls.SlideOneUserControl();
-            slideTwoUsercontrol1 = new UserControls.SlideTwoUsercontrol();
-            slideThreeUserControl1 = new UserControls.SlideThreeUserControl();
-            slideFourUserControl1 = new UserControls.SlideFourUserControl();
-            slideFiveUserControl1 = new UserControls.SlideFiveUserControl();
+            panelSlide = new Panel();
+            slidePictureBox = new PictureBox();
+            bottomSlidePanel = new Panel();
+            sliderTimer = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel4.SuspendLayout();
+            panelSlide.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)slidePictureBox).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -63,6 +64,7 @@ namespace Djamana_Partenaires
             panel1.Name = "panel1";
             panel1.Size = new Size(1064, 43);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
@@ -154,6 +156,7 @@ namespace Djamana_Partenaires
             btnCity.TabIndex = 1;
             btnCity.Text = "Villes";
             btnCity.UseVisualStyleBackColor = true;
+            btnCity.Click += btnCity_Click;
             // 
             // BtnCountry
             // 
@@ -164,7 +167,7 @@ namespace Djamana_Partenaires
             BtnCountry.TabIndex = 0;
             BtnCountry.Text = "Pays";
             BtnCountry.UseVisualStyleBackColor = true;
-            BtnCountry.Click += this.BtnCountry_Click;
+            BtnCountry.Click += BtnCountry_Click;
             // 
             // panel3
             // 
@@ -186,71 +189,47 @@ namespace Djamana_Partenaires
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // panel4
+            // panelSlide
             // 
-            panel4.Controls.Add(slideOneUserControl1);
-            panel4.Controls.Add(slideTwoUsercontrol1);
-            panel4.Controls.Add(slideThreeUserControl1);
-            panel4.Controls.Add(slideFourUserControl1);
-            panel4.Controls.Add(slideFiveUserControl1);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(200, 43);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(664, 626);
-            panel4.TabIndex = 3;
+            panelSlide.Controls.Add(slidePictureBox);
+            panelSlide.Controls.Add(bottomSlidePanel);
+            panelSlide.Dock = DockStyle.Fill;
+            panelSlide.Location = new Point(200, 43);
+            panelSlide.Name = "panelSlide";
+            panelSlide.Size = new Size(664, 626);
+            panelSlide.TabIndex = 3;
             // 
-            // slideOneUserControl1
+            // slidePictureBox
             // 
-            slideOneUserControl1.BackColor = Color.Red;
-            slideOneUserControl1.Dock = DockStyle.Fill;
-            slideOneUserControl1.Location = new Point(0, 0);
-            slideOneUserControl1.Name = "slideOneUserControl1";
-            slideOneUserControl1.Size = new Size(664, 626);
-            slideOneUserControl1.TabIndex = 0;
+            slidePictureBox.Dock = DockStyle.Fill;
+            slidePictureBox.Image = (Image)resources.GetObject("slidePictureBox.Image");
+            slidePictureBox.Location = new Point(0, 0);
+            slidePictureBox.Name = "slidePictureBox";
+            slidePictureBox.Size = new Size(664, 526);
+            slidePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            slidePictureBox.TabIndex = 1;
+            slidePictureBox.TabStop = false;
             // 
-            // slideTwoUsercontrol1
+            // bottomSlidePanel
             // 
-            slideTwoUsercontrol1.BackColor = Color.FromArgb(0, 64, 64);
-            slideTwoUsercontrol1.Dock = DockStyle.Fill;
-            slideTwoUsercontrol1.Location = new Point(0, 0);
-            slideTwoUsercontrol1.Name = "slideTwoUsercontrol1";
-            slideTwoUsercontrol1.Size = new Size(664, 626);
-            slideTwoUsercontrol1.TabIndex = 0;
+            bottomSlidePanel.Dock = DockStyle.Bottom;
+            bottomSlidePanel.Location = new Point(0, 526);
+            bottomSlidePanel.Name = "bottomSlidePanel";
+            bottomSlidePanel.Size = new Size(664, 100);
+            bottomSlidePanel.TabIndex = 0;
             // 
-            // slideThreeUserControl1
+            // sliderTimer
             // 
-            slideThreeUserControl1.BackColor = Color.DarkOrange;
-            slideThreeUserControl1.Dock = DockStyle.Fill;
-            slideThreeUserControl1.Location = new Point(0, 0);
-            slideThreeUserControl1.Name = "slideThreeUserControl1";
-            slideThreeUserControl1.Size = new Size(664, 626);
-            slideThreeUserControl1.TabIndex = 0;
-            // 
-            // slideFourUserControl1
-            // 
-            slideFourUserControl1.BackColor = Color.IndianRed;
-            slideFourUserControl1.Dock = DockStyle.Fill;
-            slideFourUserControl1.Location = new Point(0, 0);
-            slideFourUserControl1.Name = "slideFourUserControl1";
-            slideFourUserControl1.Size = new Size(664, 626);
-            slideFourUserControl1.TabIndex = 0;
-            // 
-            // slideFiveUserControl1
-            // 
-            slideFiveUserControl1.BackColor = SystemColors.ActiveCaption;
-            slideFiveUserControl1.Dock = DockStyle.Fill;
-            slideFiveUserControl1.Location = new Point(0, 0);
-            slideFiveUserControl1.Name = "slideFiveUserControl1";
-            slideFiveUserControl1.Size = new Size(664, 626);
-            slideFiveUserControl1.TabIndex = 0;
-            slideFiveUserControl1.Load += slideFiveUserControl1_Load;
+            sliderTimer.Enabled = true;
+            sliderTimer.Interval = 2000;
+            sliderTimer.Tick += sliderTimer_Tick;
             // 
             // FrmDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1064, 669);
-            Controls.Add(panel4);
+            Controls.Add(panelSlide);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -264,7 +243,8 @@ namespace Djamana_Partenaires
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel4.ResumeLayout(false);
+            panelSlide.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)slidePictureBox).EndInit();
             ResumeLayout(false);
         }
 
@@ -275,12 +255,6 @@ namespace Djamana_Partenaires
         private Label label1;
         private Panel panel2;
         private Panel panel3;
-        private Panel panel4;
-        private UserControls.SlideFiveUserControl slideFiveUserControl1;
-        private UserControls.SlideFourUserControl slideFourUserControl1;
-        private UserControls.SlideOneUserControl slideOneUserControl1;
-        private UserControls.SlideTwoUsercontrol slideTwoUsercontrol1;
-        private UserControls.SlideThreeUserControl slideThreeUserControl1;
         private PictureBox pictureBox1;
         private Button BtnCountry;
         private Button btnResourcesPerson;
@@ -289,5 +263,9 @@ namespace Djamana_Partenaires
         private Button btnSearch;
         private Button btnAdmin;
         private Button btnLogOut;
+        private Panel panelSlide;
+        private PictureBox slidePictureBox;
+        private Panel bottomSlidePanel;
+        private System.Windows.Forms.Timer sliderTimer;
     }
 }

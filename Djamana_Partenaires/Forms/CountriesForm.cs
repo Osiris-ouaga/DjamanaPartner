@@ -1,14 +1,8 @@
 ﻿using Djamana.Partenaires.Core.Business.AddingData;
+using Djamana.Partenaires.Core.Business.GettingData;
 using Djamana.Partenaires.Core.Data.Domain;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using Djamana.Partenaires.UI.DataGridViewModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Djamana.Partenaires.UI.Forms
 {
@@ -16,10 +10,13 @@ namespace Djamana.Partenaires.UI.Forms
     {
         private readonly AddingHostelPartner _addingHostelPartner;
 
-      
-        public CountriesForm(AddingHostelPartner addingHostelPartner)
+        private readonly GettingDjamanaPartner _gettingDjamanaPartner;
+
+
+        public CountriesForm(AddingHostelPartner addingHostelPartner, GettingDjamanaPartner gettingDjamanaPartner)
         {
             _addingHostelPartner = addingHostelPartner;
+            _gettingDjamanaPartner = gettingDjamanaPartner;
             InitializeComponent();
         }
 
@@ -33,6 +30,28 @@ namespace Djamana.Partenaires.UI.Forms
             };
             await _addingHostelPartner.AddCountryAsync(newCountry);
             MessageBox.Show("Country added successfully");
+        }
+
+        private async void CountriesForm_Load(object sender, EventArgs e)
+        {
+           await  FillDataGridViewAsync();
+        }
+
+        private async Task FillDataGridViewAsync()
+        {
+            // Récupérer les données des pays
+            List<Country> countries = await _gettingDjamanaPartner.GetAllCountriesAsync();
+
+            // Mapper les données vers le ViewModel
+            List<DataGridCountryViewModel> countryViewModels = countries.Select(c => new DataGridCountryViewModel
+            {
+                Id = c.Id,
+                Name = c.Name,
+                CreatedAt = c.CreatedAt
+            }).ToList();
+
+            // Lier la liste à la DataGridView
+            dataGridViewCountry.DataSource = countryViewModels;
         }
     }
 }

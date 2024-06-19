@@ -12,6 +12,8 @@ namespace Djamana.Partenaires.Core.Data
 
         public DbSet<Country> Countries { get; set; }
 
+        public DbSet<Cities> City { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -9,8 +9,9 @@ namespace Djamana.Partenaires.Core.Data.IRepository
 {
     public interface ICountryRepository
     {
-        Task<IEnumerable<Country>> GetAllCountriesAsync();
+        Task<List<Country>> GetAllCountriesAsync();
         Task<Country> GetCountryByIdAsync(int id);
+        Task<Country> GetAllCountryAsync();
         Task AddCountryAsync(Country country);
         Task UpdateCountryAsync(Country country);
         Task DeleteCountryAsync(int id);
