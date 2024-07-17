@@ -34,9 +34,8 @@ namespace Djamana_Partenaires
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            btnLogOut = new Button();
             btnSearch = new Button();
-            btnAdmin = new Button();
+            btnAbout = new Button();
             btnResourcesPerson = new Button();
             btnHostel = new Button();
             btnCity = new Button();
@@ -83,9 +82,8 @@ namespace Djamana_Partenaires
             // panel2
             // 
             panel2.BackColor = SystemColors.InactiveBorder;
-            panel2.Controls.Add(btnLogOut);
             panel2.Controls.Add(btnSearch);
-            panel2.Controls.Add(btnAdmin);
+            panel2.Controls.Add(btnAbout);
             panel2.Controls.Add(btnResourcesPerson);
             panel2.Controls.Add(btnHostel);
             panel2.Controls.Add(btnCity);
@@ -96,35 +94,26 @@ namespace Djamana_Partenaires
             panel2.Size = new Size(200, 626);
             panel2.TabIndex = 1;
             // 
-            // btnLogOut
-            // 
-            btnLogOut.FlatStyle = FlatStyle.Popup;
-            btnLogOut.Location = new Point(24, 516);
-            btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(148, 49);
-            btnLogOut.TabIndex = 6;
-            btnLogOut.Text = "Déconnexion";
-            btnLogOut.UseVisualStyleBackColor = true;
-            // 
             // btnSearch
             // 
             btnSearch.FlatStyle = FlatStyle.Popup;
-            btnSearch.Location = new Point(24, 440);
+            btnSearch.Location = new Point(24, 363);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(148, 49);
             btnSearch.TabIndex = 5;
             btnSearch.Text = "Consulter";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
-            // btnAdmin
+            // btnAbout
             // 
-            btnAdmin.FlatStyle = FlatStyle.Popup;
-            btnAdmin.Location = new Point(24, 364);
-            btnAdmin.Name = "btnAdmin";
-            btnAdmin.Size = new Size(148, 49);
-            btnAdmin.TabIndex = 4;
-            btnAdmin.Text = "Administrateur";
-            btnAdmin.UseVisualStyleBackColor = true;
+            btnAbout.FlatStyle = FlatStyle.Popup;
+            btnAbout.Location = new Point(24, 442);
+            btnAbout.Name = "btnAbout";
+            btnAbout.Size = new Size(148, 49);
+            btnAbout.TabIndex = 4;
+            btnAbout.Text = "A propos";
+            btnAbout.UseVisualStyleBackColor = true;
             // 
             // btnResourcesPerson
             // 
@@ -146,6 +135,7 @@ namespace Djamana_Partenaires
             btnHostel.TabIndex = 2;
             btnHostel.Text = "Hotels";
             btnHostel.UseVisualStyleBackColor = true;
+            btnHostel.Click += btnHostel_Click;
             // 
             // btnCity
             // 
@@ -261,8 +251,7 @@ namespace Djamana_Partenaires
         private Button btnHostel;
         private Button btnCity;
         private Button btnSearch;
-        private Button btnAdmin;
-        private Button btnLogOut;
+        private Button btnAbout;
         private Panel panelSlide;
         private PictureBox slidePictureBox;
         private Panel bottomSlidePanel;

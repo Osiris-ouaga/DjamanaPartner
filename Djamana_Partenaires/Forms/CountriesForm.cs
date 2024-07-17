@@ -25,8 +25,8 @@ namespace Djamana.Partenaires.UI.Forms
 
             var newCountry = new Country
             {
-                Name = "New Country",
-                CreatedAt = DateTime.Now
+                Name = textBoxCountryName.Text,
+                CreatedAt = dateTimePicker1.Value
             };
             await _addingHostelPartner.AddCountryAsync(newCountry);
             MessageBox.Show("Country added successfully");
@@ -52,6 +52,23 @@ namespace Djamana.Partenaires.UI.Forms
 
             // Lier la liste à la DataGridView
             dataGridViewCountry.DataSource = countryViewModels;
+
+            // Masquer la colonne Id
+            if (dataGridViewCountry.Columns["Id"] != null)
+            {
+                dataGridViewCountry.Columns["Id"].Visible = false;
+            }
+
+            // Renommer les colonnes
+            if (dataGridViewCountry.Columns["Name"] != null)
+            {
+                dataGridViewCountry.Columns["Name"].HeaderText = "Désignation";
+            }
+
+            if (dataGridViewCountry.Columns["CreatedAt"] != null)
+            {
+                dataGridViewCountry.Columns["CreatedAt"].HeaderText = "Date d'enregistrement";
+            }
         }
     }
 }

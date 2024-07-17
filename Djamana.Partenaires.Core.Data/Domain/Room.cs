@@ -8,9 +8,11 @@ namespace Djamana.Partenaires.Core.Data.Domain
 {
     public class Room
     {
-        public double Price { get; set; }
+        public int Id { get; set; }
 
-        public string? HostelRoom { get; set; }
+        public string? TypeRoom { get; set; }
+
+        public string? TypeBed { get; set; }
 
         public int BedRoom { get; set; }
 

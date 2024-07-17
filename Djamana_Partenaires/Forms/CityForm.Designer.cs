@@ -1,6 +1,6 @@
 ﻿namespace Djamana.Partenaires.UI.Forms
 {
-    partial class Cities
+    partial class CityForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,25 +33,24 @@
             buttonSave = new Button();
             comboBoxCountries = new ComboBox();
             labelCountries = new Label();
-            dateTimePickerCities = new DateTimePicker();
-            labelDate = new Label();
             textBoxCitiesName = new TextBox();
             labelCitiesName = new Label();
             panel2 = new Panel();
             dataGridViewCities = new DataGridView();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCities).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(buttonCancel);
             panel1.Controls.Add(buttonSave);
             panel1.Controls.Add(comboBoxCountries);
             panel1.Controls.Add(labelCountries);
-            panel1.Controls.Add(dateTimePickerCities);
-            panel1.Controls.Add(labelDate);
             panel1.Controls.Add(textBoxCitiesName);
             panel1.Controls.Add(labelCitiesName);
             panel1.Dock = DockStyle.Top;
@@ -62,21 +61,22 @@
             // 
             // buttonCancel
             // 
-            buttonCancel.Location = new Point(477, 103);
+            buttonCancel.Location = new Point(186, 103);
             buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(75, 23);
+            buttonCancel.Size = new Size(89, 23);
             buttonCancel.TabIndex = 7;
             buttonCancel.Text = "Annuler";
             buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(396, 103);
+            buttonSave.Location = new Point(90, 103);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(75, 23);
+            buttonSave.Size = new Size(90, 23);
             buttonSave.TabIndex = 6;
             buttonSave.Text = "Ok";
             buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Click += buttonSave_Click;
             // 
             // comboBoxCountries
             // 
@@ -94,22 +94,6 @@
             labelCountries.Size = new Size(31, 15);
             labelCountries.TabIndex = 4;
             labelCountries.Text = "Pays";
-            // 
-            // dateTimePickerCities
-            // 
-            dateTimePickerCities.Location = new Point(331, 12);
-            dateTimePickerCities.Name = "dateTimePickerCities";
-            dateTimePickerCities.Size = new Size(200, 23);
-            dateTimePickerCities.TabIndex = 3;
-            // 
-            // labelDate
-            // 
-            labelDate.AutoSize = true;
-            labelDate.Location = new Point(294, 15);
-            labelDate.Name = "labelDate";
-            labelDate.Size = new Size(31, 15);
-            labelDate.TabIndex = 2;
-            labelDate.Text = "Date";
             // 
             // textBoxCitiesName
             // 
@@ -138,6 +122,7 @@
             // 
             // dataGridViewCities
             // 
+            dataGridViewCities.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCities.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCities.Dock = DockStyle.Fill;
             dataGridViewCities.Location = new Point(0, 0);
@@ -145,7 +130,17 @@
             dataGridViewCities.Size = new Size(564, 193);
             dataGridViewCities.TabIndex = 0;
             // 
-            // Cities
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(400, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(152, 123);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            // 
+            // CityForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -154,7 +149,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Name = "Cities";
+            Name = "CityForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cities";
             Load += Cities_Load;
@@ -162,6 +157,7 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewCities).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -173,10 +169,9 @@
         private Label labelCitiesName;
         private ComboBox comboBoxCountries;
         private Label labelCountries;
-        private DateTimePicker dateTimePickerCities;
-        private Label labelDate;
         private TextBox textBoxCitiesName;
         private Button buttonCancel;
         private Button buttonSave;
+        private PictureBox pictureBox1;
     }
 }

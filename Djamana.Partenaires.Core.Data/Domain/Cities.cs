@@ -3,11 +3,11 @@
     public class Cities
     {
         public int Id { get; set; }
+        public string? Name { get; set; }
+        public int CountryId { get; set; }
 
-        public required string Name { get; set; }
+        public virtual Country? Country { get; set; }
 
-        public virtual required Country Countries { get; set; }
-
-        public DateTime CreatedAt { get; set; }
+        public virtual ICollection<Hostels> Hostels { get; set; } = new List<Hostels>();
     }
 }

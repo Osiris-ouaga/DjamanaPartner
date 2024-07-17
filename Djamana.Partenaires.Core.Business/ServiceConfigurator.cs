@@ -17,8 +17,16 @@ namespace Djamana.Partenaires.Core.Business
 
             // Register the repositories
             services.AddTransient<ICountryRepository, CountryRepository>();
+            services.AddTransient<ICityRepository, CityRepository>();
+            services.AddTransient<IHostelRepository, HostelRepository>();
+            services.AddTransient<IReferencesRepository, ReferencesRepository>();
+
+            // Register the business logic services
             services.AddTransient<AddingData.AddingHostelPartner>();
             services.AddTransient<GettingData.GettingDjamanaPartner>();
+            services.AddTransient<AddingData.CitiesManagingMethods>();
+            services.AddTransient<AddingData.HostelDataManaging>();
+            services.AddTransient<AddingData.ReferencesDataManage>();
 
         }
     }

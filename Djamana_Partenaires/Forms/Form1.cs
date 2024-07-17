@@ -8,16 +8,32 @@ namespace Djamana_Partenaires
     {
         private readonly AddingHostelPartner _addingHostelPartner;
 
+        private readonly CitiesManagingMethods _citiesManagingMethods;
+
         private readonly GettingDjamanaPartner _gettingDjamanaPartner;
+
+        private readonly HostelDataManaging _hostelDataManagingMethods;
+
+        private readonly ReferencesDataManage _referencesDataManage;
 
         private int imageNumber = 1;
 
 
-        public FrmDashboard(AddingHostelPartner addingHostelPartner, GettingDjamanaPartner gettingDjamanaPartner)
+        public FrmDashboard(CitiesManagingMethods citiesManagingMethods, AddingHostelPartner addingHostelPartner, 
+            GettingDjamanaPartner gettingDjamanaPartner, HostelDataManaging hostelDataManagingMethods, 
+            ReferencesDataManage referencesDataManage)
         {
             _addingHostelPartner = addingHostelPartner;
+
             _gettingDjamanaPartner = gettingDjamanaPartner;
+
+            _citiesManagingMethods = citiesManagingMethods;
+
             InitializeComponent();
+
+            _hostelDataManagingMethods = hostelDataManagingMethods;
+
+            _referencesDataManage = referencesDataManage;
         }
 
         private void slideFiveUserControl1_Load(object sender, EventArgs e)
@@ -27,7 +43,9 @@ namespace Djamana_Partenaires
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ReferenceForm referenceForm = new(_hostelDataManagingMethods, _citiesManagingMethods, 
+                _referencesDataManage);
+            referenceForm.ShowDialog();
         }
 
         private void BtnCountry_Click(object sender, EventArgs e)
@@ -65,8 +83,20 @@ namespace Djamana_Partenaires
 
         private void btnCity_Click(object sender, EventArgs e)
         {
-            Cities cityForm = new(_gettingDjamanaPartner);
+            CityForm cityForm = new(_citiesManagingMethods, _gettingDjamanaPartner);
             cityForm.ShowDialog();
+        }
+
+        private void btnHostel_Click(object sender, EventArgs e)
+        {
+            HostelForm hostelForm = new(_citiesManagingMethods, _hostelDataManagingMethods);
+            hostelForm.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SelectForm selectForm = new();
+            selectForm.ShowDialog();
         }
     }
 }
