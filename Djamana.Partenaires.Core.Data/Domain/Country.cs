@@ -7,5 +7,8 @@
         public required string Name { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        public virtual ICollection<Cities> Cities { get; set; } = new List<Cities>();
     }
+
 }

@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CountriesForm));
             groupBox1 = new GroupBox();
+            pictureBox1 = new PictureBox();
             btnValidate = new Button();
             btnCancel = new Button();
             dateTimePicker1 = new DateTimePicker();
@@ -36,28 +39,44 @@
             textBoxCountryName = new TextBox();
             lbl = new Label();
             dataGridViewCountry = new DataGridView();
+            contextMenuStripCountry = new ContextMenuStrip(components);
+            toolStripMenuItemUpdateCountry = new ToolStripMenuItem();
+            toolStripMenuItemDeleteCountry = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCountry).BeginInit();
+            contextMenuStripCountry.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(pictureBox1);
             groupBox1.Controls.Add(btnValidate);
             groupBox1.Controls.Add(btnCancel);
             groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(labelDateCountry);
             groupBox1.Controls.Add(textBoxCountryName);
             groupBox1.Controls.Add(lbl);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(12, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(521, 113);
+            groupBox1.Size = new Size(521, 142);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ajouter un nouveau pays";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(393, 22);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(122, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
             // btnValidate
             // 
-            btnValidate.Location = new Point(427, 29);
+            btnValidate.Location = new Point(124, 101);
             btnValidate.Name = "btnValidate";
             btnValidate.Size = new Size(75, 23);
             btnValidate.TabIndex = 5;
@@ -67,7 +86,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(427, 70);
+            btnCancel.Location = new Point(205, 101);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 4;
@@ -76,7 +95,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(91, 74);
+            dateTimePicker1.Location = new Point(91, 59);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(232, 23);
             dateTimePicker1.TabIndex = 3;
@@ -84,7 +103,7 @@
             // labelDateCountry
             // 
             labelDateCountry.AutoSize = true;
-            labelDateCountry.Location = new Point(54, 74);
+            labelDateCountry.Location = new Point(54, 65);
             labelDateCountry.Name = "labelDateCountry";
             labelDateCountry.Size = new Size(31, 15);
             labelDateCountry.TabIndex = 2;
@@ -114,12 +133,33 @@
             dataGridViewCountry.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCountry.BackgroundColor = SystemColors.ControlLightLight;
             dataGridViewCountry.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCountry.Location = new Point(12, 131);
+            dataGridViewCountry.ContextMenuStrip = contextMenuStripCountry;
+            dataGridViewCountry.Location = new Point(12, 148);
             dataGridViewCountry.Name = "dataGridViewCountry";
             dataGridViewCountry.ReadOnly = true;
             dataGridViewCountry.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCountry.Size = new Size(520, 228);
+            dataGridViewCountry.Size = new Size(520, 211);
             dataGridViewCountry.TabIndex = 1;
+            // 
+            // contextMenuStripCountry
+            // 
+            contextMenuStripCountry.Items.AddRange(new ToolStripItem[] { toolStripMenuItemUpdateCountry, toolStripMenuItemDeleteCountry });
+            contextMenuStripCountry.Name = "contextMenuStripCountry";
+            contextMenuStripCountry.Size = new Size(169, 48);
+            // 
+            // toolStripMenuItemUpdateCountry
+            // 
+            toolStripMenuItemUpdateCountry.Name = "toolStripMenuItemUpdateCountry";
+            toolStripMenuItemUpdateCountry.Size = new Size(168, 22);
+            toolStripMenuItemUpdateCountry.Text = "Modifier le pays";
+            toolStripMenuItemUpdateCountry.Click += toolStripMenuItemUpdateCountry_Click;
+            // 
+            // toolStripMenuItemDeleteCountry
+            // 
+            toolStripMenuItemDeleteCountry.Name = "toolStripMenuItemDeleteCountry";
+            toolStripMenuItemDeleteCountry.Size = new Size(168, 22);
+            toolStripMenuItemDeleteCountry.Text = "Supprimer le pays";
+            toolStripMenuItemDeleteCountry.Click += toolStripMenuItemDeleteCountry_Click;
             // 
             // CountriesForm
             // 
@@ -132,11 +172,12 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "CountriesForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Countries ";
             Load += CountriesForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCountry).EndInit();
+            contextMenuStripCountry.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -150,5 +191,9 @@
         private Label labelDateCountry;
         private TextBox textBoxCountryName;
         private Button btnValidate;
+        private PictureBox pictureBox1;
+        private ContextMenuStrip contextMenuStripCountry;
+        private ToolStripMenuItem toolStripMenuItemUpdateCountry;
+        private ToolStripMenuItem toolStripMenuItemDeleteCountry;
     }
 }

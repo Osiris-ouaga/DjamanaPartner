@@ -20,6 +20,11 @@ namespace Djamana.Partenaires.Core.Data.DjamanaContext.Configuration.DjamanaSett
 
             builder.Property(e => e.CreatedAt)
                 .IsRequired();
+
+            builder.HasMany(c => c.Cities)
+                .WithOne(e => e.Country)
+                .HasForeignKey(e => e.CountryId)
+                .IsRequired();
         }
     }
 }

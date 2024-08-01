@@ -15,5 +15,7 @@ namespace Djamana.Partenaires.Core.Data.IRepository
         Task UpdateCityAsync(Cities city);
 
         Task DeleteCityAsync(int id);
+
+        Task<Dictionary<string, int>> GetCityCountByCountryAsync();
     }
 }

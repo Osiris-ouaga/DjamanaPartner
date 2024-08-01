@@ -21,7 +21,18 @@ namespace Djamana.Partenaires.Core.Business.AddingData
         {
             return await _referencesService.GetAllReferencesAsync();
         }
-        // Other methods to interact with CountryService can be added here
+
+        // Nouvelle méthode pour obtenir les référents classés par ville
+        public async Task<Dictionary<Cities, List<Partners>>> GetReferencesGroupedByCityAsync()
+        {
+            return await _referencesService.GetReferencesGroupedByCityAsync();
+        }
+
+        // Nouvelle méthode pour obtenir les référents d'une ville spécifique
+        public async Task<List<Partners>> GetReferencesByCityIdAsync(int cityId)
+        {
+            return await _referencesService.GetReferencesByCityIdAsync(cityId);
+        }
     }
 }
 

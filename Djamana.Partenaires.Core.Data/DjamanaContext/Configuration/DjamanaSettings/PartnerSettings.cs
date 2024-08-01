@@ -35,13 +35,13 @@ namespace Djamana.Partenaires.Core.Data.DjamanaContext.Configuration.DjamanaSett
                 .IsRequired();
 
             builder.HasOne(e => e.City)
-                .WithMany()
-                .HasForeignKey("CityId")
+                .WithMany(c => c.Partners)
+                .HasForeignKey(e => e.CityId)
                 .IsRequired();
 
             builder.HasOne(e => e.Hostel)
                 .WithMany()
-                .HasForeignKey("HostelId")
+                .HasForeignKey(e => e.HostelId)
                 .IsRequired();
         }
     }

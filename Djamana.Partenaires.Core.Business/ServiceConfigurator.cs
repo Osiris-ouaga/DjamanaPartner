@@ -1,5 +1,4 @@
-﻿using Djamana.Partenaires.Core.Business.GettingData;
-using Djamana.Partenaires.Core.Data;
+﻿using Djamana.Partenaires.Core.Data;
 using Djamana.Partenaires.Core.Data.IRepository;
 using Djamana.Partenaires.Core.Data.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +19,7 @@ namespace Djamana.Partenaires.Core.Business
             services.AddTransient<ICityRepository, CityRepository>();
             services.AddTransient<IHostelRepository, HostelRepository>();
             services.AddTransient<IReferencesRepository, ReferencesRepository>();
+            services.AddTransient<IHostelServicesRepository, HostelServicesRepository>();
 
             // Register the business logic services
             services.AddTransient<AddingData.AddingHostelPartner>();
@@ -27,6 +27,7 @@ namespace Djamana.Partenaires.Core.Business
             services.AddTransient<AddingData.CitiesManagingMethods>();
             services.AddTransient<AddingData.HostelDataManaging>();
             services.AddTransient<AddingData.ReferencesDataManage>();
+            services.AddTransient<AddingData.HostelServicesDataManaging>();
 
         }
     }

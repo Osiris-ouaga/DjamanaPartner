@@ -16,13 +16,13 @@ namespace Djamana.Partenaires.Core.Data.DjamanaContext.Configuration.DjamanaSett
 
             builder.Property(e => e.Name)
                 .IsRequired()
-                .HasMaxLength(255); // Ajustez la longueur maximale si nécessaire
+                .HasMaxLength(255);
 
             builder.Property(e => e.CountryId)
                 .IsRequired();
 
             builder.HasOne(e => e.Country)
-                .WithMany()
+                .WithMany(c => c.Cities)
                 .HasForeignKey(e => e.CountryId)
                 .IsRequired();
         }

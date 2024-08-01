@@ -16,12 +16,15 @@ namespace Djamana_Partenaires
 
         private readonly ReferencesDataManage _referencesDataManage;
 
+        private readonly HostelServicesDataManaging _hostelServicesDataManaging;
+
+
         private int imageNumber = 1;
 
 
         public FrmDashboard(CitiesManagingMethods citiesManagingMethods, AddingHostelPartner addingHostelPartner, 
             GettingDjamanaPartner gettingDjamanaPartner, HostelDataManaging hostelDataManagingMethods, 
-            ReferencesDataManage referencesDataManage)
+            ReferencesDataManage referencesDataManage, HostelServicesDataManaging hostelServicesDataManaging)
         {
             _addingHostelPartner = addingHostelPartner;
 
@@ -34,6 +37,9 @@ namespace Djamana_Partenaires
             _hostelDataManagingMethods = hostelDataManagingMethods;
 
             _referencesDataManage = referencesDataManage;
+
+            _hostelServicesDataManaging = hostelServicesDataManaging;
+
         }
 
         private void slideFiveUserControl1_Load(object sender, EventArgs e)
@@ -89,7 +95,8 @@ namespace Djamana_Partenaires
 
         private void btnHostel_Click(object sender, EventArgs e)
         {
-            HostelForm hostelForm = new(_citiesManagingMethods, _hostelDataManagingMethods);
+            HostelForm hostelForm = new(_citiesManagingMethods, _hostelDataManagingMethods, 
+                _hostelServicesDataManaging);
             hostelForm.ShowDialog();
         }
 

@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             dataGridViewHostel = new DataGridView();
+            contextMenuStripHostel = new ContextMenuStrip(components);
+            modifierLhôtelToolStripMenuItem = new ToolStripMenuItem();
+            supprimerLhôtelToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
             buttonCanceled = new Button();
             buttonValidate = new Button();
@@ -44,24 +51,46 @@
             textBoxName = new TextBox();
             panelReferencesControls = new Panel();
             groupBox2 = new GroupBox();
-            buttonHostelRoom = new Button();
+            chartHostel = new System.Windows.Forms.DataVisualization.Charting.Chart();
             buttonHostelServices = new Button();
             groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHostel).BeginInit();
+            contextMenuStripHostel.SuspendLayout();
             panel1.SuspendLayout();
             panelReferencesControls.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartHostel).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridViewHostel
             // 
             dataGridViewHostel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewHostel.ContextMenuStrip = contextMenuStripHostel;
             dataGridViewHostel.Dock = DockStyle.Fill;
             dataGridViewHostel.Location = new Point(0, 0);
             dataGridViewHostel.Name = "dataGridViewHostel";
             dataGridViewHostel.Size = new Size(660, 204);
             dataGridViewHostel.TabIndex = 0;
+            // 
+            // contextMenuStripHostel
+            // 
+            contextMenuStripHostel.Items.AddRange(new ToolStripItem[] { modifierLhôtelToolStripMenuItem, supprimerLhôtelToolStripMenuItem });
+            contextMenuStripHostel.Name = "contextMenuStripHostel";
+            contextMenuStripHostel.Size = new Size(181, 70);
+            // 
+            // modifierLhôtelToolStripMenuItem
+            // 
+            modifierLhôtelToolStripMenuItem.Name = "modifierLhôtelToolStripMenuItem";
+            modifierLhôtelToolStripMenuItem.Size = new Size(180, 22);
+            modifierLhôtelToolStripMenuItem.Text = "Modifier l'hôtel";
+            modifierLhôtelToolStripMenuItem.Click += modifierLhôtelToolStripMenuItem_Click;
+            // 
+            // supprimerLhôtelToolStripMenuItem
+            // 
+            supprimerLhôtelToolStripMenuItem.Name = "supprimerLhôtelToolStripMenuItem";
+            supprimerLhôtelToolStripMenuItem.Size = new Size(180, 22);
+            supprimerLhôtelToolStripMenuItem.Text = "Supprimer l'hôtel";
             // 
             // panel1
             // 
@@ -74,7 +103,7 @@
             // 
             // buttonCanceled
             // 
-            buttonCanceled.Location = new Point(209, 215);
+            buttonCanceled.Location = new Point(179, 209);
             buttonCanceled.Name = "buttonCanceled";
             buttonCanceled.Size = new Size(75, 23);
             buttonCanceled.TabIndex = 16;
@@ -83,7 +112,7 @@
             // 
             // buttonValidate
             // 
-            buttonValidate.Location = new Point(128, 215);
+            buttonValidate.Location = new Point(98, 209);
             buttonValidate.Name = "buttonValidate";
             buttonValidate.Size = new Size(75, 23);
             buttonValidate.TabIndex = 15;
@@ -93,7 +122,7 @@
             // 
             // dateTimePickerReferences
             // 
-            dateTimePickerReferences.Location = new Point(128, 186);
+            dateTimePickerReferences.Location = new Point(77, 180);
             dateTimePickerReferences.Name = "dateTimePickerReferences";
             dateTimePickerReferences.Size = new Size(205, 23);
             dateTimePickerReferences.TabIndex = 13;
@@ -101,7 +130,7 @@
             // labelDate
             // 
             labelDate.AutoSize = true;
-            labelDate.Location = new Point(90, 192);
+            labelDate.Location = new Point(45, 186);
             labelDate.Name = "labelDate";
             labelDate.Size = new Size(31, 15);
             labelDate.TabIndex = 12;
@@ -110,7 +139,7 @@
             // comboBoxCity
             // 
             comboBoxCity.FormattingEnabled = true;
-            comboBoxCity.Location = new Point(127, 48);
+            comboBoxCity.Location = new Point(77, 42);
             comboBoxCity.Name = "comboBoxCity";
             comboBoxCity.Size = new Size(207, 23);
             comboBoxCity.TabIndex = 9;
@@ -118,7 +147,7 @@
             // labelAdress
             // 
             labelAdress.AutoSize = true;
-            labelAdress.Location = new Point(73, 104);
+            labelAdress.Location = new Point(28, 100);
             labelAdress.Name = "labelAdress";
             labelAdress.Size = new Size(48, 15);
             labelAdress.TabIndex = 7;
@@ -127,7 +156,7 @@
             // labelPhoneNumber
             // 
             labelPhoneNumber.AutoSize = true;
-            labelPhoneNumber.Location = new Point(72, 160);
+            labelPhoneNumber.Location = new Point(27, 154);
             labelPhoneNumber.Name = "labelPhoneNumber";
             labelPhoneNumber.Size = new Size(49, 15);
             labelPhoneNumber.TabIndex = 6;
@@ -135,7 +164,7 @@
             // 
             // textBoxAdress
             // 
-            textBoxAdress.Location = new Point(128, 77);
+            textBoxAdress.Location = new Point(78, 71);
             textBoxAdress.Multiline = true;
             textBoxAdress.Name = "textBoxAdress";
             textBoxAdress.Size = new Size(206, 74);
@@ -143,7 +172,7 @@
             // 
             // textBoxPhoneNumber
             // 
-            textBoxPhoneNumber.Location = new Point(127, 157);
+            textBoxPhoneNumber.Location = new Point(77, 151);
             textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             textBoxPhoneNumber.Size = new Size(206, 23);
             textBoxPhoneNumber.TabIndex = 4;
@@ -151,7 +180,7 @@
             // lblCity
             // 
             lblCity.AutoSize = true;
-            lblCity.Location = new Point(92, 48);
+            lblCity.Location = new Point(47, 48);
             lblCity.Name = "lblCity";
             lblCity.Size = new Size(29, 15);
             lblCity.TabIndex = 2;
@@ -160,7 +189,7 @@
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(51, 19);
+            labelName.Location = new Point(6, 16);
             labelName.Name = "labelName";
             labelName.Size = new Size(70, 15);
             labelName.TabIndex = 0;
@@ -168,7 +197,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(127, 16);
+            textBoxName.Location = new Point(78, 13);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(206, 23);
             textBoxName.TabIndex = 1;
@@ -185,31 +214,36 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(buttonHostelRoom);
+            groupBox2.Controls.Add(chartHostel);
             groupBox2.Controls.Add(buttonHostelServices);
             groupBox2.Dock = DockStyle.Right;
-            groupBox2.Location = new Point(460, 0);
+            groupBox2.Location = new Point(307, 0);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(200, 244);
+            groupBox2.Size = new Size(353, 244);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
             // 
-            // buttonHostelRoom
+            // chartHostel
             // 
-            buttonHostelRoom.Location = new Point(31, 118);
-            buttonHostelRoom.Name = "buttonHostelRoom";
-            buttonHostelRoom.Size = new Size(135, 51);
-            buttonHostelRoom.TabIndex = 18;
-            buttonHostelRoom.Text = "Ajouter une nouvelle chambre";
-            buttonHostelRoom.UseVisualStyleBackColor = true;
-            buttonHostelRoom.Click += buttonHostelRoom_Click;
+            chartArea1.Name = "ChartArea1";
+            chartHostel.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartHostel.Legends.Add(legend1);
+            chartHostel.Location = new Point(6, 16);
+            chartHostel.Name = "chartHostel";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartHostel.Series.Add(series1);
+            chartHostel.Size = new Size(341, 169);
+            chartHostel.TabIndex = 18;
             // 
             // buttonHostelServices
             // 
-            buttonHostelServices.Location = new Point(31, 48);
+            buttonHostelServices.Location = new Point(99, 201);
             buttonHostelServices.Name = "buttonHostelServices";
-            buttonHostelServices.Size = new Size(135, 55);
+            buttonHostelServices.Size = new Size(208, 37);
             buttonHostelServices.TabIndex = 17;
             buttonHostelServices.Text = "Ajouter un nouveau service hôtélier";
             buttonHostelServices.UseVisualStyleBackColor = true;
@@ -247,12 +281,13 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "HostelForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "HostelForm";
             Load += HostelForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewHostel).EndInit();
+            contextMenuStripHostel.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panelReferencesControls.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartHostel).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -277,7 +312,10 @@
         private Panel panelReferencesControls;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Button buttonHostelRoom;
         private Button buttonHostelServices;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartHostel;
+        private ContextMenuStrip contextMenuStripHostel;
+        private ToolStripMenuItem modifierLhôtelToolStripMenuItem;
+        private ToolStripMenuItem supprimerLhôtelToolStripMenuItem;
     }
 }

@@ -226,7 +226,6 @@ namespace Djamana_Partenaires
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FrmDashboard";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dashboard";
             Load += FrmDashboard_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

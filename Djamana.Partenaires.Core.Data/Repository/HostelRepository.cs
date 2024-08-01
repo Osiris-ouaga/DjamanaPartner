@@ -20,10 +20,12 @@ namespace Djamana.Partenaires.Core.Data.Repository
                                      .ToListAsync();
         }
 
+
         public async Task<Hostels> GetHotelsByIdAsync(int id)
         {
             return await _dataContext.Hostels.FindAsync(id);
         }
+
 
         public async Task AddHotelsAsync(Hostels hostel)
         {
@@ -40,12 +42,30 @@ namespace Djamana.Partenaires.Core.Data.Repository
             }
         }
 
-
         public async Task UpdateHotelsAsync(Hostels hostel)
         {
-            _dataContext.Hostels.Update(hostel);
-            await _dataContext.SaveChangesAsync();
+            try
+            {
+                // Récupérer l'entité existante
+                var existingHostel = await _dataContext.Hostels.FindAsync(hostel.Id);
+                if (existingHostel != null)
+                {
+                    // Mettre à jour les propriétés de l'entité existante
+                    _dataContext.Entry(existingHostel).CurrentValues.SetValues(hostel);
+                    await _dataContext.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new Exception("Hostel not found");
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine($"Erreur lors de la mise à jour: {ex.InnerException?.Message}");
+                throw;
+            }
         }
+
 
         public async Task DeleteHotelsAsync(int id)
         {
@@ -55,6 +75,19 @@ namespace Djamana.Partenaires.Core.Data.Repository
                 _dataContext.Hostels.Remove(hostel);
                 await _dataContext.SaveChangesAsync();
             }
+        }
+
+        public async Task<Dictionary<string, int>> GetHotelCountByCityAsync()
+        {
+            return await _dataContext.Hostels
+                .Where(h => h.City != null && h.City.Name != null)
+                .GroupBy(h => h.City!.Name!)
+                .Select(g => new
+                {
+                    CityName = g.Key,
+                    HotelCount = g.Count()
+                })
+                .ToDictionaryAsync(g => g.CityName, g => g.HotelCount);
         }
     }
 }

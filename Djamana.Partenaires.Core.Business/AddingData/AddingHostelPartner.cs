@@ -17,6 +17,16 @@ namespace Djamana.Partenaires.Core.Business.AddingData
             await _countryService.AddCountryAsync(country);
         }
 
-        // Other methods to interact with CountryService can be added here
+        public async Task UpdateCountryAsync(Country country)
+        {
+            await _countryService.UpdateCountryAsync(country);
+        }
+
+
+        public async Task DeleteCountryAsync(int Id)
+        {
+            await _countryService.DeleteCountryAsync(Id);
+        }
+
     }
 }

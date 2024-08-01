@@ -28,57 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             groupBox1 = new GroupBox();
-            listBoxHostel = new ListBox();
+            comboBoxHostel = new ComboBox();
+            labelHostels = new Label();
             textBoxPrice = new TextBox();
             labelPrice = new Label();
             btnValidate = new Button();
             btnCancel = new Button();
             dateTimePicker1 = new DateTimePicker();
             labelDateCountry = new Label();
-            textBoxCountryName = new TextBox();
+            textBoxDesignation = new TextBox();
             lbl = new Label();
-            dataGridViewCountry = new DataGridView();
+            dataGridViewHostel = new DataGridView();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewCountry).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewHostel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(listBoxHostel);
+            groupBox1.Controls.Add(chart1);
+            groupBox1.Controls.Add(comboBoxHostel);
+            groupBox1.Controls.Add(labelHostels);
             groupBox1.Controls.Add(textBoxPrice);
             groupBox1.Controls.Add(labelPrice);
             groupBox1.Controls.Add(btnValidate);
             groupBox1.Controls.Add(btnCancel);
             groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(labelDateCountry);
-            groupBox1.Controls.Add(textBoxCountryName);
+            groupBox1.Controls.Add(textBoxDesignation);
             groupBox1.Controls.Add(lbl);
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(574, 163);
+            groupBox1.Size = new Size(574, 197);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ajouter un nouveau service";
+            groupBox1.Enter += groupBox1_Enter;
             // 
-            // listBoxHostel
+            // comboBoxHostel
             // 
-            listBoxHostel.BackColor = SystemColors.Menu;
-            listBoxHostel.Dock = DockStyle.Right;
-            listBoxHostel.FormattingEnabled = true;
-            listBoxHostel.ItemHeight = 15;
-            listBoxHostel.Location = new Point(329, 19);
-            listBoxHostel.Name = "listBoxHostel";
-            listBoxHostel.SelectionMode = SelectionMode.MultiSimple;
-            listBoxHostel.Size = new Size(242, 141);
-            listBoxHostel.TabIndex = 8;
+            comboBoxHostel.FormattingEnabled = true;
+            comboBoxHostel.Location = new Point(91, 97);
+            comboBoxHostel.Name = "comboBoxHostel";
+            comboBoxHostel.Size = new Size(232, 23);
+            comboBoxHostel.TabIndex = 10;
+            // 
+            // labelHostels
+            // 
+            labelHostels.AutoSize = true;
+            labelHostels.Location = new Point(44, 100);
+            labelHostels.Name = "labelHostels";
+            labelHostels.Size = new Size(41, 15);
+            labelHostels.TabIndex = 9;
+            labelHostels.Text = "Hôtels";
+            labelHostels.Click += labelHostels_Click;
             // 
             // textBoxPrice
             // 
             textBoxPrice.Location = new Point(91, 62);
             textBoxPrice.Name = "textBoxPrice";
-            textBoxPrice.Size = new Size(152, 23);
+            textBoxPrice.Size = new Size(232, 23);
             textBoxPrice.TabIndex = 7;
             // 
             // labelPrice
@@ -92,16 +107,17 @@
             // 
             // btnValidate
             // 
-            btnValidate.Location = new Point(44, 134);
+            btnValidate.Location = new Point(125, 168);
             btnValidate.Name = "btnValidate";
             btnValidate.Size = new Size(75, 23);
             btnValidate.TabIndex = 5;
             btnValidate.Text = "Ok";
             btnValidate.UseVisualStyleBackColor = true;
+            btnValidate.Click += btnValidate_ClickAsync;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(135, 134);
+            btnCancel.Location = new Point(206, 168);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 4;
@@ -110,7 +126,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(91, 96);
+            dateTimePicker1.Location = new Point(91, 134);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(232, 23);
             dateTimePicker1.TabIndex = 3;
@@ -118,18 +134,18 @@
             // labelDateCountry
             // 
             labelDateCountry.AutoSize = true;
-            labelDateCountry.Location = new Point(54, 102);
+            labelDateCountry.Location = new Point(54, 138);
             labelDateCountry.Name = "labelDateCountry";
             labelDateCountry.Size = new Size(31, 15);
             labelDateCountry.TabIndex = 2;
             labelDateCountry.Text = "Date";
             // 
-            // textBoxCountryName
+            // textBoxDesignation
             // 
-            textBoxCountryName.Location = new Point(91, 30);
-            textBoxCountryName.Name = "textBoxCountryName";
-            textBoxCountryName.Size = new Size(232, 23);
-            textBoxCountryName.TabIndex = 1;
+            textBoxDesignation.Location = new Point(91, 30);
+            textBoxDesignation.Name = "textBoxDesignation";
+            textBoxDesignation.Size = new Size(232, 23);
+            textBoxDesignation.TabIndex = 1;
             // 
             // lbl
             // 
@@ -140,20 +156,36 @@
             lbl.TabIndex = 0;
             lbl.Text = "Désignation";
             // 
-            // dataGridViewCountry
+            // dataGridViewHostel
             // 
-            dataGridViewCountry.AllowUserToAddRows = false;
-            dataGridViewCountry.AllowUserToDeleteRows = false;
-            dataGridViewCountry.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCountry.BackgroundColor = SystemColors.ControlLightLight;
-            dataGridViewCountry.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCountry.Dock = DockStyle.Fill;
-            dataGridViewCountry.Location = new Point(0, 0);
-            dataGridViewCountry.Name = "dataGridViewCountry";
-            dataGridViewCountry.ReadOnly = true;
-            dataGridViewCountry.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCountry.Size = new Size(574, 367);
-            dataGridViewCountry.TabIndex = 3;
+            dataGridViewHostel.AllowUserToAddRows = false;
+            dataGridViewHostel.AllowUserToDeleteRows = false;
+            dataGridViewHostel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewHostel.BackgroundColor = SystemColors.ActiveBorder;
+            dataGridViewHostel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewHostel.Location = new Point(0, 203);
+            dataGridViewHostel.Name = "dataGridViewHostel";
+            dataGridViewHostel.ReadOnly = true;
+            dataGridViewHostel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewHostel.Size = new Size(574, 164);
+            dataGridViewHostel.TabIndex = 3;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chart1.Legends.Add(legend1);
+            chart1.Location = new Point(329, 12);
+            chart1.Name = "chart1";
+            chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart1.Series.Add(series1);
+            chart1.Size = new Size(239, 185);
+            chart1.TabIndex = 11;
+            chart1.Text = "chart1";
             // 
             // HostelServicesForm
             // 
@@ -162,13 +194,15 @@
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(574, 367);
             Controls.Add(groupBox1);
-            Controls.Add(dataGridViewCountry);
+            Controls.Add(dataGridViewHostel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "HostelServicesForm";
             Text = "HostelServicesForm";
+            Load += HostelServicesForm_LoadAsync;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewCountry).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewHostel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
         }
 
@@ -179,11 +213,13 @@
         private Button btnCancel;
         private DateTimePicker dateTimePicker1;
         private Label labelDateCountry;
-        private TextBox textBoxCountryName;
+        private TextBox textBoxDesignation;
         private Label lbl;
-        private DataGridView dataGridViewCountry;
+        private DataGridView dataGridViewHostel;
         private Label labelPrice;
         private TextBox textBoxPrice;
-        private ListBox listBoxHostel;
+        private Label labelHostels;
+        private ComboBox comboBoxHostel;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

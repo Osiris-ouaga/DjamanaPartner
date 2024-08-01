@@ -48,6 +48,25 @@ namespace Djamana.Partenaires.Core.Data.Repository
             }
         }
 
+        // Nouvelle méthode pour obtenir les référents classés par ville
+        public async Task<Dictionary<Cities, List<Partners>>> GetReferencesGroupedByCityAsync()
+        {
+            return await _dataContext.Reference
+                                     .Include(r => r.City)
+                                     .Include(r => r.Hostel)
+                                     .GroupBy(r => r.City)
+                                     .ToDictionaryAsync(g => g.Key, g => g.ToList());
+        }
+
+        // Nouvelle méthode pour obtenir les référents d'une ville spécifique
+        public async Task<List<Partners>> GetReferencesByCityIdAsync(int cityId)
+        {
+            return await _dataContext.Reference
+                                     .Include(r => r.City)
+                                     .Include(r => r.Hostel)
+                                     .Where(r => r.City.Id == cityId)
+                                     .ToListAsync();
+        }
 
     }
 }

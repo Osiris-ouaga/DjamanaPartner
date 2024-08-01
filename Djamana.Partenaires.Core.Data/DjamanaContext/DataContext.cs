@@ -18,6 +18,9 @@ namespace Djamana.Partenaires.Core.Data
 
         public DbSet<Hostels> Hostels { get; set; }
 
+        public DbSet<HostelServices> HostelServices { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -29,6 +32,9 @@ namespace Djamana.Partenaires.Core.Data
             modelBuilder.ApplyConfiguration(new HostelsSettings());
 
             modelBuilder.ApplyConfiguration(new PartnerSettings());
+
+            modelBuilder.ApplyConfiguration(new HostelServicesSettings());
+
         }
     }
 }

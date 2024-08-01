@@ -13,5 +13,11 @@ namespace Djamana.Partenaires.Core.Data.IRepository
         Task UpdateReferencesAsync(Partners references);
 
         Task DeleteReferencesAsync(int id);
+
+        // Nouvelle méthode pour obtenir les référents classés par ville
+        Task<Dictionary<Cities, List<Partners>>> GetReferencesGroupedByCityAsync();
+
+        // Nouvelle méthode pour obtenir les référents d'une ville spécifique
+        Task<List<Partners>> GetReferencesByCityIdAsync(int cityId);
     }
 }

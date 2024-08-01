@@ -15,5 +15,7 @@ namespace Djamana.Partenaires.Core.Data.IRepository
         Task UpdateHotelsAsync(Hostels hostel);
 
         Task DeleteHotelsAsync(int id);
+
+        Task<Dictionary<string, int>> GetHotelCountByCityAsync();
     }
 }

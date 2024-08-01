@@ -1,5 +1,6 @@
 ﻿using Djamana.Partenaires.Core.Data.Domain;
 using Djamana.Partenaires.Core.Data.IRepository;
+using Djamana.Partenaires.Core.Data.Repository;
 
 namespace Djamana.Partenaires.Core.Business.AddingData
 {
@@ -21,5 +22,21 @@ namespace Djamana.Partenaires.Core.Business.AddingData
         {
             return await _cityService.GetAllCitiesAsync();
         }
+
+        public async Task<Dictionary<string, int>> GetCityCountByCountryAsync()
+        {
+            return await _cityService.GetCityCountByCountryAsync();
+        }
+
+        public async Task UpdatingCityAsync(Cities city)
+        {
+            await _cityService.UpdateCityAsync (city);
+        }
+
+        public async Task DeletingCityAsync(int Id)
+        {
+            await _cityService.DeleteCityAsync(Id);
+        }
+
     }
 }
